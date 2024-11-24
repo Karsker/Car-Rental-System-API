@@ -15,5 +15,11 @@ namespace CarRentalSystem.Repositories
         {
             return _dbContext.Users.ToListAsync();
         }
+
+        public Task Add(User user)
+        {    
+            _dbContext.Users.Add(user);
+            return _dbContext.SaveChangesAsync();
+        }
     }
 }

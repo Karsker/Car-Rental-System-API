@@ -6,5 +6,7 @@ namespace CarRentalSystem.Services
     {
         public Task<List<User>> GetAllUsers();
 
+        public Task AddUser(User user);
+
     }
 }
