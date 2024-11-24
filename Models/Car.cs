@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarRentalSystem.Models
 {
@@ -17,6 +18,7 @@ namespace CarRentalSystem.Models
         public required DateTime YearOfRTM { get; set; }
 
         [Required]
+        [Precision(6, 2)]
         [Range(500.00, 5000.00)]
         public required decimal PricePerDay { get; set; }
 
