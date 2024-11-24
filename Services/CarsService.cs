@@ -3,7 +3,7 @@ using CarRentalSystem.Repositories;
 
 namespace CarRentalSystem.Services
 {
-    public class CarsService
+    public class CarsService : ICarsService
     {
         private readonly ICarsRepository _carsRepo;
 
@@ -17,9 +17,15 @@ namespace CarRentalSystem.Services
             return _carsRepo.GetAll();
         }
 
+        public ValueTask<Car?> GetCarById(int id)
+        {
+            return _carsRepo.GetById(id);
+        }
+
         public Task AddCar(Car car)
         {
             return _carsRepo.Add(car);
         }
+
     }
 }

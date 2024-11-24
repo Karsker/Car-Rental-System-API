@@ -5,6 +5,7 @@ namespace CarRentalSystem.Models
 {
     public class Car
     {
+
         [Required]
         public int Id {  get; set; }
 
@@ -15,7 +16,7 @@ namespace CarRentalSystem.Models
         public required string Model { get; set; }
 
         [Required]
-        public required DateTime YearOfRTM { get; set; }
+        public required int Year { get; set; }
 
         [Required]
         [Precision(6, 2)]

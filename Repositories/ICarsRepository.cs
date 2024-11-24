@@ -1,4 +1,5 @@
 ﻿using CarRentalSystem.Models;
+using Microsoft.Identity.Client;
 
 namespace CarRentalSystem.Repositories
 {
@@ -6,6 +7,9 @@ namespace CarRentalSystem.Repositories
     {
 
         public Task<List<Car>> GetAll();
+
+        public ValueTask<Car?> GetById(int id);
         public Task Add(Car car);
+
     }
 }

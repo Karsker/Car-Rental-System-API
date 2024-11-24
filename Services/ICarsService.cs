@@ -7,6 +7,7 @@ namespace CarRentalSystem.Services
     {
         public Task<List<Car>> GetAllCars();
 
+        public ValueTask<Car?> GetCarById(int id);
         public Task AddCar(Car car);
     }
 }
