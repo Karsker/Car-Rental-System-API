@@ -54,6 +54,10 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICarsRepository, CarsRepository>();
 builder.Services.AddScoped<ICarsService, CarsService>();
 
+// Add CarRental repository and service
+builder.Services.AddScoped<ICarRentalRepository, CarRentalRepository>();
+builder.Services.AddScoped<ICarRentalService, CarRentalService>();
+
 // Add database context for SQL Server
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
