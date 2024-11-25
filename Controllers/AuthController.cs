@@ -1,4 +1,5 @@
-﻿using CarRentalSystem.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using CarRentalSystem.Data;
 using CarRentalSystem.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,8 +8,12 @@ namespace CarRentalSystem.Controllers
 {
     public class LoginCredential
     {
+        [Required]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
         public required string Email { get; set; }
 
+        [Required]
+        [MinLength(6)]
         public required string Password { get; set; }
     }
 
@@ -17,6 +22,7 @@ namespace CarRentalSystem.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+
         private readonly JWTService _jwtService;
         private readonly IUserService _userService;
 
