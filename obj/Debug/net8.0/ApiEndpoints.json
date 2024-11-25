@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "CarRentalSystem.Controllers.AuthController",
+    "Method": "ValidateCredentials",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cred",
+        "Type": "CarRentalSystem.Controllers.LoginCredential",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarRentalSystem.Controllers.CarsController",
     "Method": "GetAllCars",
     "RelativePath": "api/Cars",

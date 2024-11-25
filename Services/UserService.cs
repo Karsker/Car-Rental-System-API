@@ -17,7 +17,7 @@ namespace CarRentalSystem.Services
 
        
         // Function to compute hash
-        string ComputeHash(string source)
+        public static string ComputeHash(string source)
         {
             byte[] tmpSource;
             byte[] tmpHash;
@@ -46,6 +46,12 @@ namespace CarRentalSystem.Services
             return _userrepo.Add(user);
         }
 
-        
+        public Task<User?> GetUserByEmail(string email)
+        {
+            return _userrepo.GetByEmail(email);
+        }
+
+
+
     }
 }

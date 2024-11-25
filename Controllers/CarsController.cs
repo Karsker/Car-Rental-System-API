@@ -1,5 +1,6 @@
 ﻿using CarRentalSystem.Models;
 using CarRentalSystem.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,12 +17,14 @@ namespace CarRentalSystem.Controllers
             _carsService = carsService;
         }
 
+        [Authorize(Policy = "All")]
         [HttpGet]
         public async Task<ActionResult<List<Car>>> GetAllCars()
         {
             return Ok(await _carsService.GetAllCars());
         }
 
+        [Authorize(Policy = "All")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Car>> GetCarById(int id)
         {
@@ -33,6 +36,7 @@ namespace CarRentalSystem.Controllers
             return Ok(car);
         }
 
+        [Authorize(Policy = "AdminOnly")]
         [HttpPost]
         public async Task<IActionResult> AddCar(Car car)
         {

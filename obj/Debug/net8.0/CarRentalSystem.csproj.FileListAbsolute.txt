@@ -167,3 +167,9 @@ C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)
 C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\obj\Debug\net8.0\CarRentalSystem.pdb
 C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\obj\Debug\net8.0\CarRentalSystem.genruntimeconfig.cache
 C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\obj\Debug\net8.0\ref\CarRentalSystem.dll
+C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll

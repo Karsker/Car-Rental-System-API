@@ -21,5 +21,10 @@ namespace CarRentalSystem.Repositories
             _dbContext.Users.Add(user);
             return _dbContext.SaveChangesAsync();
         }
+
+        public Task<User?> GetByEmail(string email)
+        {
+            return _dbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
+        } 
     }
 }

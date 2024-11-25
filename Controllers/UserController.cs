@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using CarRentalSystem.Models;
 using CarRentalSystem.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,7 @@ namespace CarRentalSystem.Controllers
 
         }
 
+        [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public async Task<ActionResult<List<User>>> GetAllUsers()
         {

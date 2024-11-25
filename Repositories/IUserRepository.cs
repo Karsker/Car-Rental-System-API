@@ -7,5 +7,7 @@ namespace CarRentalSystem.Repositories
         public Task<List<User>> GetAll();
 
         public Task Add(User user);
+
+        public Task<User?> GetByEmail(string email);
     }
 }

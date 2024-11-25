@@ -8,5 +8,6 @@ namespace CarRentalSystem.Services
 
         public Task AddUser(User user);
 
+        public Task<User?> GetUserByEmail(string email);
     }
 }
