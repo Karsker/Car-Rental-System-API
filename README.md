@@ -267,3 +267,13 @@ On successful car rental, an email is sent to the email address of the user that
 
 ### Transactions Logging
 All requests to the endpoints (excluding those that are blocked due to authentication failure) are logged in the database using logging filters.
+
+## Running Locally
+To run the API locally, clone this repository or download the zip file and extract to a folder. 
+1. Open Visual Studio
+2. If not already installed, install   the **ASP.NET and web development** workload from Visual Studio Installer
+3. In Visual Studio, click on **Open a project or solution** and select the `CarRentalSystem.sln` file
+4. Rename the `.env.sample` file to `.env`. This file holds the environemnt variables. Fill your own values in the fields and save the file.
+5. Click on the **Start** button to run the program.
+
+**NOTE**: All the fields in the `.env` must be filled with valid values (including SendGrid API key) for the application to run properly.
