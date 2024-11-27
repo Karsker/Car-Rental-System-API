@@ -13,9 +13,9 @@ namespace CarRentalSystem.Services
         private string _audience;
         public JWTService(IConfiguration configuration)
         {
-            _key = configuration["Jwt:Key"];
-            _issuer = configuration["Jwt:Issuer"];
-            _audience = configuration["Jwt:Audience"];
+            _key = Environment.GetEnvironmentVariable("JWT_KEY");
+            _issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
+            _audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
         }
 
         public string GenerateToken(int id, string username, string role)

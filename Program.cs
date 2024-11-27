@@ -9,16 +9,17 @@ using CarRentalSystem.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Load envionment variables from .env file
+var root = Directory.GetCurrentDirectory();
+var dotenv = Path.Combine(root, ".env");
+EnvironmentService.Load(dotenv);
+
 // Get JWT parameters from .env
 var jwtKey = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT_KEY"));
 var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
 var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
 
 
-// Load envionment variables from .env file
-var root = Directory.GetCurrentDirectory();
-var dotenv = Path.Combine(root, ".env");
-EnvironmentService.Load(dotenv);
 
 builder.Services.AddAuthentication(i =>
 {
