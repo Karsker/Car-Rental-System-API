@@ -1,4 +1,5 @@
-﻿using CarRentalSystem.Models;
+﻿using System.Reflection.Metadata;
+using CarRentalSystem.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarRentalSystem.Data
@@ -12,5 +13,7 @@ namespace CarRentalSystem.Data
         public DbSet<Car> Cars { get; set; }
 
         public DbSet<CarRental> CarRentals { get; set; }
+
+        public DbSet<TransactionLog> TransactionLogs { get; set; }
     }
 }

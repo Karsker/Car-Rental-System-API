@@ -173,3 +173,6 @@ C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)
 C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\SendGrid.dll
+C:\Users\karth\Code\Chubb Training\Assignments\Assignment-10 (Car Rental System)\CarRentalSystem\bin\Debug\net8.0\StarkbankEcdsa.dll

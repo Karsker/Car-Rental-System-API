@@ -1,4 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarRentalSystem.Models
@@ -8,11 +11,22 @@ namespace CarRentalSystem.Models
         [Required]
         public int Id { get; set; }
 
-        [Required]
-        public required User User { get; set; }
 
         [Required]
-        public required Car Car { get; set; }
+        [ForeignKey(nameof(User))]
+        public int UserId { get; set; }
+
+        [JsonIgnore]
+        [Required]
+        public User User { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(Car))]
+        public int CarId { get; set; }
+
+        [JsonIgnore]
+        [Required]
+        public Car Car { get; set; }
 
         [Required]
         // Car must have been rented on or before the current date

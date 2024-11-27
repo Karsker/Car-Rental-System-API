@@ -5,10 +5,20 @@ using CarRentalSystem.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using CarRentalSystem.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
-var jwtval = builder.Configuration.GetSection("Jwt");
-var key = Encoding.UTF8.GetBytes(jwtval["Key"]);
+
+// Get JWT parameters from .env
+var jwtKey = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT_KEY"));
+var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
+var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
+
+
+// Load envionment variables from .env file
+var root = Directory.GetCurrentDirectory();
+var dotenv = Path.Combine(root, ".env");
+EnvironmentService.Load(dotenv);
 
 builder.Services.AddAuthentication(i =>
 {
@@ -22,9 +32,9 @@ builder.Services.AddAuthentication(i =>
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtval["Issuer"],
-        ValidAudience = jwtval["Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(key)
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtAudience,
+        IssuerSigningKey = new SymmetricSecurityKey(jwtKey)
     };
 });
 
@@ -38,7 +48,8 @@ builder.Services.AddAuthorization(i =>
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddScoped<TransactionLogService>();
+builder.Services.AddControllers(c => c.Filters.Add<TransactionLogAttribute>());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -58,8 +69,12 @@ builder.Services.AddScoped<ICarsService, CarsService>();
 builder.Services.AddScoped<ICarRentalRepository, CarRentalRepository>();
 builder.Services.AddScoped<ICarRentalService, CarRentalService>();
 
+// Add TransactionLog service
+
 // Add database context for SQL Server
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING")));
+
+
 
 var app = builder.Build();
 
@@ -72,6 +87,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

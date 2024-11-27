@@ -18,7 +18,7 @@ namespace CarRentalSystem.Services
             _audience = configuration["Jwt:Audience"];
         }
 
-        public string GenerateToken(string username, string role)
+        public string GenerateToken(int id, string username, string role)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_key));
 
@@ -28,7 +28,8 @@ namespace CarRentalSystem.Services
             {
                 new Claim(JwtRegisteredClaimNames.Sub, username),
                 new Claim("role", role),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim("userId", id.ToString())
             };
 
             var token = new JwtSecurityToken(

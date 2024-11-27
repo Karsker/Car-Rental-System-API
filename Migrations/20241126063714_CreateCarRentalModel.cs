@@ -6,11 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CarRentalSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateRentalModel : Migration
+    public partial class CreateCarRentalModel : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            
+
             migrationBuilder.CreateTable(
                 name: "CarRentals",
                 columns: table => new
@@ -57,6 +59,15 @@ namespace CarRentalSystem.Migrations
         {
             migrationBuilder.DropTable(
                 name: "CarRentals");
+
+            migrationBuilder.DropTable(
+                name: "TransactionLogs");
+
+            migrationBuilder.DropTable(
+                name: "Cars");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

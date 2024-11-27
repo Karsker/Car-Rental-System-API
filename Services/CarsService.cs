@@ -27,5 +27,26 @@ namespace CarRentalSystem.Services
             return _carsRepo.Add(car);
         }
 
+        public async Task UpdateCar(int id, CarDTO car)
+        {
+            var carFromDb = await _carsRepo.GetById(id);
+
+            // Iterate through the properties and update
+            foreach (var prop in carFromDb.GetType().GetProperties())
+            {
+                var updatedValue = typeof(CarDTO).GetProperty(prop.Name)?.GetValue(car);
+                if (updatedValue is not null)
+                {
+                    prop.SetValue(carFromDb, updatedValue);
+                }
+            }
+            await _carsRepo.Update(carFromDb);
+        }
+
+        public Task DeleteCar(int id)
+        {
+            return _carsRepo.Delete(id);
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CarRentalSystem.Data;
+using CarRentalSystem.Filters;
 using CarRentalSystem.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,7 @@ namespace CarRentalSystem.Controllers
             _userService = userService;
         }
 
+        [TransactionLog]
         [HttpPost("login")]
         public async Task<IActionResult> ValidateCredentials(LoginCredential cred)
         {
@@ -51,7 +53,7 @@ namespace CarRentalSystem.Controllers
             }
 
             // Generate token
-            var token = _jwtService.GenerateToken(user.Name, user.Role);
+            var token = _jwtService.GenerateToken(user.Id, user.Name, user.Role);
             return Ok(token);
         }
     }

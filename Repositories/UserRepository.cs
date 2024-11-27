@@ -25,6 +25,11 @@ namespace CarRentalSystem.Repositories
         public Task<User?> GetByEmail(string email)
         {
             return _dbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
-        } 
+        }
+
+        public ValueTask<User?> GetById(int id)
+        {
+            return _dbContext.Users.FindAsync(id);
+        }
     }
 }

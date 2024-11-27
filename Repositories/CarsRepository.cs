@@ -26,5 +26,22 @@ namespace CarRentalSystem.Repositories
             _dbContext.Cars.Add(car);
             return Task.FromResult(_dbContext.SaveChangesAsync());
         }
+
+        public Task Update(Car car)
+        {
+            _dbContext.Cars.Entry(car).State = EntityState.Modified;
+            return _dbContext.SaveChangesAsync();
+        }
+
+        public Task Delete(int id)
+        {
+            var carFromDb = _dbContext.Cars.Find(id);
+            if (carFromDb is not null)
+            {
+                _dbContext.Remove(carFromDb);
+            }
+
+            return _dbContext.SaveChangesAsync();
+        }
     }
 }

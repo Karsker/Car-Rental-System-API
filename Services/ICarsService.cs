@@ -9,5 +9,9 @@ namespace CarRentalSystem.Services
 
         public ValueTask<Car?> GetCarById(int id);
         public Task AddCar(Car car);
+
+        public Task UpdateCar(int id, CarDTO car);
+
+        public Task DeleteCar(int id);
     }
 }

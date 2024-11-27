@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Security.Claims;
+using System.Text.RegularExpressions;
+using CarRentalSystem.Filters;
 using CarRentalSystem.Models;
 using CarRentalSystem.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -34,6 +36,7 @@ namespace CarRentalSystem.Controllers
 
         }
 
+        [TransactionLog]
         [Authorize(Policy = "AdminOnly")]
         [HttpGet]
         public async Task<ActionResult<List<User>>> GetAllUsers()
@@ -41,9 +44,11 @@ namespace CarRentalSystem.Controllers
             return Ok(await _userService.GetAllUsers());
         }
 
+        [TransactionLog]
         [HttpPost("register")]
         public async Task<ActionResult<User>> AddUser(User user)
         {
+
             // Check if password is strong
             if (!PasswordIsStrong(user.Password))
             {

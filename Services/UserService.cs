@@ -51,6 +51,10 @@ namespace CarRentalSystem.Services
             return _userrepo.GetByEmail(email);
         }
 
+        public ValueTask<User?> GetUserById(int id)
+        {
+            return _userrepo.GetById(id);
+        }
 
 
     }

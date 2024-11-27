@@ -11,5 +11,8 @@ namespace CarRentalSystem.Repositories
         public ValueTask<Car?> GetById(int id);
         public Task Add(Car car);
 
+        public Task Update(Car car);
+
+        public Task Delete(int id);
     }
 }
