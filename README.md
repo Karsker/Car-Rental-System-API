@@ -274,7 +274,7 @@ To run the API locally, clone this repository or download the zip file and extra
 2. If not already installed, install   the **ASP.NET and web development** workload from Visual Studio Installer
 3. In Visual Studio, click on **Open a project or solution** and select the `CarRentalSystem.sln` file
 4. Rename the `.env.sample` file to `.env`. This file holds the environemnt variables. Fill your own values in the fields and save the file.
-5. Create database migration using the command `Add-Migrations<migration name>` in the NuGet Package Manager.
+5. Create database migration using the command `Add-Migration <migration name>` in the NuGet Package Manager.
 6. Update the database using the command `Update-Database`
 5. Click on the **Start** button to run the program.
 
