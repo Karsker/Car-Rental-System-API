@@ -279,3 +279,8 @@ To run the API locally, clone this repository or download the zip file and extra
 5. Click on the **Start** button to run the program.
 
 **NOTE**: All the fields in the `.env` must be filled with valid values (including SendGrid API key) for the application to run properly.
+
+## Deployment
+A live version of the project that uses Microsoft Azure SQL database is deployed at https://carrentalsystem-c0e6ezb9cvfra0ey.centralindia-01.azurewebsites.net/api/rentals. The endpoints described above can be suffixed to the URL and used.
+
+**NOTE**: The API is deployed on Microsoft App Service, which is serverless compute. Hence you may notice delay in getting response for your first request, or a 500 Internal Server Error. Wait for a few seconds and try again.
